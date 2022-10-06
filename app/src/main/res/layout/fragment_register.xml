@@ -23,79 +23,94 @@
         android:textStyle="bold"
          />
 
-    <EditText
-        android:id="@+id/et_username"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_username"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:hint="@string/prompt_username"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/et_email"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
         android:hint="@string/prompt_email"
-        android:imeActionLabel="@string/prompt_email"
-        android:imeOptions="actionDone"
-        android:selectAllOnFocus="true"
         android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username"
-        tools:ignore="Autofill" />
+        app:layout_constraintTop_toBottomOf="@id/til_username"
+        tools:ignore="Autofill" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/et_password"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/prompt_password"
-        android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email"
-        tools:ignore="Autofill" />
+        app:layout_constraintTop_toBottomOf="@+id/til_email"
+        app:passwordToggleEnabled="true"
+        tools:ignore="Autofill" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/et_konpassword"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_konpassword"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/prompt_password"
-        android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"
-        tools:ignore="Autofill" />
+        app:layout_constraintTop_toBottomOf="@+id/til_password"
+        app:passwordToggleEnabled="true"
+        tools:ignore="Autofill" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_konpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
