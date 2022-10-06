@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
         val username = "Welcome, " + sharedPreferences.getString("username_key", null) + "!"
         binding.tvUser.text = username
 
-        val application = requireNotNull(this.activity).application
+//        val application = requireNotNull(this.activity).application
 //        val dataSource = AppDatabase.getInstance(application).noteDatabaseDao()
 //        val viewModelFactory = CreateViewModelFactory(dataSource, application)
 //        noteViewModel = ViewModelProvider(this, viewModelFactory)[NoteViewModel::class.java]
