@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prompt_password">Masukkan password</string>
+    <string name="prompt_email">Masukkan email</string>
+    <string name="action_sign_in">Masuk</string>
+    <string name="dont_have_account">Belum punya akun?</string>
+    <string name="prompt_username">Masukkan username</string>
+    <string name="login">Masuk</string>
+    <string name="register">Daftar</string>
+    <string name="log_out">Keluar</string>
+</resources>
