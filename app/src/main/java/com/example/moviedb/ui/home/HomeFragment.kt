@@ -6,10 +6,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.moviedb.R
+import com.example.moviedb.adapter.HomeAdapter
 import com.example.moviedb.databinding.FragmentHomeBinding
+import com.example.moviedb.model.GetPopularItem
+import com.example.moviedb.service.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -66,5 +73,42 @@ class HomeFragment : Fragment() {
             editor.clear()
             editor.apply()
         }
+
+        fetchAllData()
+    }
+
+    private fun fetchAllData() {
+        ApiClient.instance.getPopular().enqueue(object : Callback<List<GetPopularItem>> {
+            override fun onResponse(
+                call: Call<List<GetPopularItem>>,
+                response: Response<List<GetPopularItem>>
+            ) {
+                val body = response.body()
+                val code = response.code()
+                if (code == 200) {
+                    Toast.makeText(requireContext(), "Fetch success", Toast.LENGTH_SHORT).show()
+                    showList(body)
+                    binding.pb.visibility = View.GONE
+                } else {
+                    Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<GetPopularItem>>, t: Throwable) {
+//                binding.pb.visibility = View.GONE
+                Toast.makeText(requireContext(), "Failure", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun showList(data: List<GetPopularItem>?) {
+        val adapter = HomeAdapter(object : HomeAdapter.OnClickListener {
+            override fun onClickItem(data: GetPopularItem) {
+//                Toast.makeText(requireContext(), "to be implemented", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        adapter.submitData(data)
+        binding.rvMovie.adapter = adapter
     }
 }
