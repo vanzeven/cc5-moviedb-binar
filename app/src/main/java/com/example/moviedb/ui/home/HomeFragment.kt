@@ -74,6 +74,10 @@ class HomeFragment : Fragment() {
             editor.apply()
         }
 
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_noteFragment_to_profileFragment)
+        }
+
         fetchAllData()
     }
 
