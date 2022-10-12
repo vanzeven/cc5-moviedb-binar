@@ -13,8 +13,7 @@ class HomeAdapter(private val movies: List<GetPopularItem>) : RecyclerView.Adapt
         RecyclerView.ViewHolder(binding.root) {
         private val imageBase = "https://image.tmdb.org/t/p/w500/"
         fun bindMovie(movie: GetPopularItem){
-            var year = 2005
-            var titleAndYear = movie.title + " (" + year +  ")"
+            val titleAndYear = movie.title + " (" + movie.releaseDate?.take(4) +  ")"
             binding.tvTitle.text = titleAndYear
             binding.tvRating.text = movie.voteAverage.toString()
             Glide.with(itemView.context).load(imageBase + movie.posterPath).into(binding.ivPoster)
