@@ -2,55 +2,38 @@ package com.example.moviedb.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.moviedb.databinding.MovieItemBinding
 import com.example.moviedb.model.GetPopularItem
 
-class HomeAdapter(private val onItemClick: OnClickListener) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeAdapter(private val movies: List<GetPopularItem>) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<GetPopularItem>() {
-        override fun areItemsTheSame(oldItem: GetPopularItem, newItem: GetPopularItem): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: GetPopularItem, newItem: GetPopularItem): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
-        }
-    }
-
-    private val differ = AsyncListDiffer(this, diffCallback)
-
-    fun submitData(value: List<GetPopularItem>?) = differ.submitList(value)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return ViewHolder(MovieItemBinding.inflate(inflater, parent, false))
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = differ.currentList[position]
-        data.let { holder.bind(data) }
-    }
-
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
-
-    inner class ViewHolder(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: GetPopularItem) {
-            binding.apply {
-                tvTitle.text = data.title
-                tvRating.text = data.voteAverage.toString()
-                root.setOnClickListener {
-                    onItemClick.onClickItem(data)
-                }
-            }
+    class HomeViewHolder(private var binding: MovieItemBinding, val movies: List<GetPopularItem>) :
+        RecyclerView.ViewHolder(binding.root) {
+        private val imageBase = "https://image.tmdb.org/t/p/w500/"
+        fun bindMovie(movie: GetPopularItem){
+            var year = 2005
+            var titleAndYear = movie.title + " (" + year +  ")"
+            binding.tvTitle.text = titleAndYear
+            binding.tvRating.text = movie.voteAverage.toString()
+            Glide.with(itemView.context).load(imageBase + movie.posterPath).into(binding.ivPoster)
+//            binding.rv.setOnClickListener{
+//                val movieData = Bundle()
+//                movie.id?.let { it1 -> movieData.putInt("ID", it1) }
+//                it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, movieData)
+//            }
         }
     }
 
-    interface OnClickListener {
-        fun onClickItem(data: GetPopularItem)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeViewHolder(binding, movies)
+    }
+
+    override fun getItemCount(): Int = movies.size
+
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+        holder.bindMovie(movies.get(position))
     }
 }

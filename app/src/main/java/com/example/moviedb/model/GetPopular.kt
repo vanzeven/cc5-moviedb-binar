@@ -1,3 +1,13 @@
 package com.example.moviedb.model
 
-class GetPopular : ArrayList<GetPopularItem>()
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class GetPopular(
+    @SerializedName("results")
+    val movies : List<GetPopularItem>
+) : Parcelable {
+    constructor() : this(mutableListOf())
+}
