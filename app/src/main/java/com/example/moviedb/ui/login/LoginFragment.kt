@@ -56,6 +56,7 @@ class LoginFragment : Fragment() {
                 sharedPreferences.edit {
                     this.putString("username_key", it.username)
                     this.putString("email_key", it.email)
+                    this.putString("password_key", it.password)
                 }
             }
             else{
