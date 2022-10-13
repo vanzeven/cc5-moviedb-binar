@@ -1,3 +1,4 @@
 # cc5-moviedb-binar
 
-status: belum selesai
+status: sudah selesai
+video demo sedang dalam proses pengerjaan
