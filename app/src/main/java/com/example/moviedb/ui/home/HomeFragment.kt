@@ -48,6 +48,29 @@ class HomeFragment : Fragment() {
 
         fetchAllData { movies : List<GetPopularItem> -> recyclerView.adapter = HomeAdapter(movies) }
     }
+//        adapter = NoteAdapter(object: NoteItemClickListener {
+//            override fun onDeleteMenuClicked(item: NoteEntity) {
+//                adapter.deleteItem(item)
+//                noteViewModel.deleteNote(item)
+//                Toast.makeText(requireContext(), "Note berhasil dihapus", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onEditMenuClicked(item: NoteEntity) {
+//                Toast.makeText(requireContext(), "To be implemented", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+
+//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        recyclerView.adapter = adapter
+
+//        noteViewModel.getNote().observe(viewLifecycleOwner){
+//            adapter.setItems(it)
+//        }
+
+
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_noteFragment_to_profileFragment)
+        }
 
     private fun fetchAllData(callback: (List<GetPopularItem>) -> Unit) {
 

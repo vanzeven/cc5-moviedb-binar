@@ -55,6 +55,8 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.action_loginFragment_to_noteFragment)
                 sharedPreferences.edit {
                     this.putString("username_key", it.username)
+                    this.putString("email_key", it.email)
+                    this.putString("password_key", it.password)
                 }
             }
             else{
