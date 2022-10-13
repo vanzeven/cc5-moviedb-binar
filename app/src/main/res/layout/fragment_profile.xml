@@ -48,13 +48,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_email"
+        android:id="@+id/til_fullname"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
         android:layout_marginTop="8dp"
         android:layout_height="wrap_content"
-        android:hint="@string/prompt_email"
+        android:hint="Enter Full Name"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/til_username"
         tools:ignore="Autofill" >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
@@ -70,7 +70,28 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_password"
+        android:id="@+id/til_birthdate"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Insert date of birth"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_fullname"
+        tools:ignore="Autofill" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_birthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_padress"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_width="0dp"
@@ -81,33 +102,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_email"
-        app:passwordToggleEnabled="true"
+        app:layout_constraintTop_toBottomOf="@+id/til_birthdate"
         tools:ignore="Autofill" >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_konpassword"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/prompt_password"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_password"
-        app:passwordToggleEnabled="true"
-        tools:ignore="Autofill" >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_konpassword"
+            android:id="@+id/et_padress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />

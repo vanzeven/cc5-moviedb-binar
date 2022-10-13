@@ -50,31 +50,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun update() {
-        if(cekLogin()) {
-            val username = binding.etUsername.text.toString()
-            val password = binding.etPassword.text.toString()
+        val username = binding.etUsername.text.toString()
 
-            profileViewModel.updateAccount(
-                AccountEntity(username = username, password = password)
-            )
+        sharedPreferences.edit {
+            this.putString("username_key", username)
         }
-    }
-
-    private fun cekLogin(): Boolean {
-        val email = binding.etEmail.text.toString()
-        val password = binding.etPassword.text.toString()
-        val konpassword = binding.etKonpassword.text.toString()
-        var passwordIsCorrect = false
-
-        profileViewModel.getAccountByEmail(email).observe(viewLifecycleOwner){
-            if (it != null && it.password == password && password == konpassword){
-                passwordIsCorrect = true
-            }
-            else{
-                Toast.makeText(requireContext(), "Password salah", Toast.LENGTH_SHORT).show()
-            }
-        }
-        return passwordIsCorrect
+        findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
     }
 
 }
