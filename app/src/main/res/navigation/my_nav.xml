@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_noteFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_noteFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -43,6 +46,15 @@
         android:label="ProfileFragment" >
         <action
             android:id="@+id/action_profileFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.moviedb.ui.moviedetails.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
     </fragment>
 </navigation>

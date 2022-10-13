@@ -1,9 +1,12 @@
 package com.example.moviedb.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.moviedb.R
 import com.example.moviedb.databinding.MovieItemBinding
 import com.example.moviedb.model.GetPopularItem
 
@@ -17,11 +20,12 @@ class HomeAdapter(private val movies: List<GetPopularItem>) : RecyclerView.Adapt
             binding.tvTitle.text = titleAndYear
             binding.tvRating.text = movie.voteAverage.toString()
             Glide.with(itemView.context).load(imageBase + movie.posterPath).into(binding.ivPoster)
-//            binding.rv.setOnClickListener{
-//                val movieData = Bundle()
-//                movie.id?.let { it1 -> movieData.putInt("ID", it1) }
-//                it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, movieData)
-//            }
+
+            binding.rvMovie.setOnClickListener{
+                val movieDetails = Bundle()
+                movie.id?.let { it1 -> movieDetails.putInt("ID", it1) }
+                it.findNavController().navigate(R.id.action_noteFragment_to_movieDetailFragment, movieDetails)
+            }
         }
     }
 

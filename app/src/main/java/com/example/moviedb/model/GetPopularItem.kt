@@ -34,5 +34,8 @@ data class GetPopularItem(
     @SerializedName("vote_average")
     val voteAverage: Number?,
     @SerializedName("vote_count")
-    val voteCount: Int?
+    val voteCount: Int?,
+
+    @SerializedName("runtime")
+    val runtime: Int?
 ) : Parcelable
