@@ -43,12 +43,6 @@ class HomeFragment : Fragment() {
         val username = "Welcome, " + sharedPreferences.getString("username_key", null) + "!"
         binding.tvUser.text = username
 
-        binding.btnLogout.setOnClickListener {
-            findNavController().navigate(R.id.action_noteFragment_to_loginFragment)
-            editor.clear()
-            editor.apply()
-        }
-
         recyclerView = binding.rvMovie
         recyclerView.layoutManager = LinearLayoutManager(context)
 
