@@ -68,11 +68,6 @@ class HomeFragment : Fragment() {
 //            adapter.setItems(it)
 //        }
 
-        binding.btnLogout.setOnClickListener {
-            findNavController().navigate(R.id.action_noteFragment_to_loginFragment)
-            editor.clear()
-            editor.apply()
-        }
 
         binding.btnProfile.setOnClickListener {
             findNavController().navigate(R.id.action_noteFragment_to_profileFragment)
