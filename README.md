@@ -1,5 +1,3 @@
-# cc5-moviedb-binar
-
-status: sudah selesai
-
-video demo sedang dalam proses pengerjaan
+revisi:
+1. menambahkan scrollview di login, register, dan profile
+2. mengimplementasikan style
